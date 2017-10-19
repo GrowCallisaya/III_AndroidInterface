@@ -35,10 +35,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MiguelitoActivity"
-            android:label="@string/title_activity_miguelito"
-            android:theme="@style/Theme.Sucrenita"></activity>
     </application>
 
 </manifest>

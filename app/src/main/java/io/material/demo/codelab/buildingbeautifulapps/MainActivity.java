@@ -67,22 +67,11 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(appBar);
 
 
-
-
-
-
         //Instanciamos lista de Productos y ImageRequester
         ArrayList<Producto> lista_productos = leerListaProductos();
         ImageRequester imageRequester = ImageRequester.getInstance(this);
 
 
-
-
-        // Añade este Código
-        Producto productoCabecera = getProductoCabecera(lista_productos);
-        NetworkImageView headerImage = (NetworkImageView) findViewById(R.id.app_bar_image);
-        imageRequester.setImageFromUrl(headerImage, productoCabecera.url);
-        
 
         //Listamos los productos en RecyclerView
         final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.product_list);
@@ -92,62 +81,13 @@ public class MainActivity extends AppCompatActivity {
 
 
         //Creamos la Lista en Columnas (Grids)
-        recyclerView.setLayoutManager(new GridLayoutManager(this,3));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adaptador = new ProductoAdapter(lista_productos, imageRequester);
         recyclerView.setAdapter(adaptador);
 
 
-
-
-
-        final BottomNavigationView menuAbajo =
-                (BottomNavigationView) findViewById(R.id.bottom_navigation);
-
-        Button boton = (Button) findViewById(R.id.accion);
-        boton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                menuAbajo.setVisibility(View.VISIBLE);
-            }
-        });
-
-        menuAbajo.setOnNavigationItemSelectedListener(
-                new BottomNavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                        LinearLayoutManager layoutManager =
-                                (LinearLayoutManager) recyclerView.getLayoutManager();
-                        layoutManager.scrollToPositionWithOffset(0, 0);
-
-                        barajarProductos();
-                        return true;
-                    }
-                });
-
     }
 
-    private void barajarProductos() {
-        Toast.makeText(this, "Hola me cambiaste!!!!!!!!", Toast.LENGTH_SHORT).show();
-
-    }
-
-    // Añade el Método getProductoCabecera
-    private Producto getProductoCabecera(ArrayList<Producto> lista_productos) {
-            if (lista_productos.size() == 0) {
-                throw new IllegalArgumentException("Tiene que haber por lo menos un producto");
-            }
-
-            for (int i = 0; i < lista_productos.size(); i++) {
-                if ("Balón de Playa".equals(lista_productos.get(i).titulo)) {
-                    return lista_productos.get(i);
-                }
-            }
-            return lista_productos.get(0);
-    }
-
-    private void TeEmociones() {
-        Toast.makeText(this, "Hola soy Diego, y etoy emocionado!!!!!!! XD ", Toast.LENGTH_SHORT).show();
-    }
 
 
     /**
@@ -165,9 +105,6 @@ public class MainActivity extends AppCompatActivity {
             return new ArrayList<>();
         }
     }
-
-
-
 
 
 
@@ -210,9 +147,6 @@ public class MainActivity extends AppCompatActivity {
             return lista_productos.size();
         }
     }
-
-
-
 
 
 

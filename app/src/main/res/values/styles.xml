@@ -35,7 +35,7 @@
 
     <!-- Descomentar ests estilos: -->
 
-    <style name="Widget.Sucrenita.CollapsingToolbar" parent="">
+    <!--<style name="Widget.Sucrenita.CollapsingToolbar" parent="">
         <item name="collapsedTitleTextAppearance">@style/TextAppearance.Sucrenita.Logo</item>
         <item name="contentScrim">?attr/colorPrimary</item>
         <item name="expandedTitleGravity">top</item>
@@ -43,7 +43,7 @@
         <item name="expandedTitleMarginTop">140dp</item>
         <item name="expandedTitleTextAppearance">@style/TextAppearance.Sucrenita.Logo</item>
         <item name="scrimVisibleHeightTrigger">140dp</item>
-    </style>
+    </style>-->
 
     <style name="Widget.Sucrenita.CollapsingToolbarImage" parent="">
         <item name="android:layout_marginTop">48dp</item>
@@ -72,8 +72,8 @@
 
 
 
-    <style name="ThemeOverlay.Sucrenita.BottomNavigation" parent="">
+    <!--<style name="ThemeOverlay.Sucrenita.BottomNavigation" parent="">
         <item name="colorPrimary">?attr/colorAccent</item>
-    </style>
+    </style>-->
 
 </resources>
